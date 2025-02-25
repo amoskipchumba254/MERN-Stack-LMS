@@ -8,13 +8,10 @@ import { clerkWebhooks } from './controllers/webhooks.js'
 const app = express()
 
 // Connect to database
-(async ()=>{
-    await connectDB()
-})().catch(err => console.error("Database connection failed:", err));
+await connectDB()
 
 // Middlewares
 app.use(cors())
-app.use(express.json())
 
 // Routes
 app.get('/', (req, res)=> res.send("API Working"))
