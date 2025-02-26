@@ -16,6 +16,7 @@ await connectDB()
 await connectCloudinary()
 
 // Middlewares
+app.use(express.json())
 app.use(cors())
 app.use(clerkMiddleware())
 
@@ -23,7 +24,7 @@ app.use(clerkMiddleware())
 app.get('/', (req, res)=> res.send("API Working"))
 app.post('/clerk', express.json(), clerkWebhooks)
 app.use('/api/educator', express.json(), educatorRouter)
-app.use('api/course', express.json(), courseRouter)
+app.use('/api/course', express.json(), courseRouter)
 
 
 // Port
