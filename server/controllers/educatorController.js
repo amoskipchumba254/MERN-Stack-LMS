@@ -22,7 +22,7 @@ export const updateRoleToEducator = async (req, res)=>{
 }
 
 // Add New Course
-export const addNewCourse = async (req, res)=>{
+export const addCourse = async (req, res)=>{
     try {
         const {courseData} = req.body
         const imageFile = req.file
