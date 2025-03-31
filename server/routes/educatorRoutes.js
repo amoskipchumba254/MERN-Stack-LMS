@@ -12,4 +12,4 @@ educatorRouter.get('/courses', ProtectEducator, getEducatorCourses)
 educatorRouter.get('/dashboard', ProtectEducator, educatorDashboard) 
 educatorRouter.get('/enrolled-students', ProtectEducator, getEnrolledStudentsData)
 
-export default educatorRouter
+export default educatorRouter;
