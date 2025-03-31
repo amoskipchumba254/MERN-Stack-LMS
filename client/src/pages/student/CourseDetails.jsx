@@ -13,7 +13,7 @@ const CourseDetails = () => {
 
   const {id} = useParams()
 
-  const [courseData, setCourseDta] = useState(null)
+  const [courseData, setCourseData] = useState(null)
   const [openSections, setOpenSections] = useState({})
   const [isAlreadyEnrolled, setIsAlreadyEnrolled] = useState(false)
   const [playerData, setPlayerData] = useState(null)
