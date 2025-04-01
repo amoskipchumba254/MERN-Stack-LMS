@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import{ useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { AppContext } from '../../context/AppContext'
 import Loading from '../../componenets/student/Loading'
@@ -18,7 +18,7 @@ const CourseDetails = () => {
   const [isAlreadyEnrolled, setIsAlreadyEnrolled] = useState(false)
   const [playerData, setPlayerData] = useState(null)
 
-  const {allCourses, calculateRating, calculateNoOfLectures, calculateCourseDuration, calculateChapterTime, currency, backendUrl, userData, getToken} = useContext(AppContext)
+  const { calculateRating, calculateNoOfLectures, calculateCourseDuration, calculateChapterTime, currency, backendUrl, userData, getToken} = useContext(AppContext)
 
   const fetchCourseData = async () =>{
     try {
@@ -59,7 +59,7 @@ const CourseDetails = () => {
 
   useEffect(()=>{
     fetchCourseData()
-  },[])
+  })
 
   useEffect(()=>{
     if(userData && courseData){
@@ -91,8 +91,7 @@ const toggleSection = (index)=>{
        <div className='flex items-center pt-3 pb-1 space-x-2 text-sm'>
                  <p>{calculateRating(courseData)}</p>
                  <div className='flex'>
-                   {[...Array(5)].map((_, i)=>(<img key={i} src={i < Math.floor
-                   (calculateRating(courseData)) ? assets.star : assets.star_blank} alt=''
+                   {[...Array(5)].map((_, i)=>(<img key={i} src={i < Math.floor(calculateRating(courseData)) ? assets.star : assets.star_blank} alt=''
                    className='w-3.5 h-3.5' />))}
                  </div>
                  <p className='text-blue-600'>({courseData.courseRatings.length} {courseData.courseRatings.length > 1 ? 'ratings' : 'rating' })</p>
