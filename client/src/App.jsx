@@ -16,6 +16,7 @@ import ErrorBoundary from './components/common/ErrorBoundary'
 import "quill/dist/quill.snow.css";
 import { ToastContainer } from 'react-toastify';
 
+
 const App = () => {
   const isEducatorRoute = useMatch('/educator/*')
 
