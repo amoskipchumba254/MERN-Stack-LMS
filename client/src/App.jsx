@@ -12,9 +12,9 @@ import AddCourse from './pages/educator/AddCourse'
 import MyCourses from './pages/educator/MyCourses'
 import StudentsEnrolled from './pages/educator/StudentsEnrolled'
 import Navbar from './components/student/Navbar'
-import ErrorBoundary from './components/common/ErrorBoundary'
 import "quill/dist/quill.snow.css";
 import { ToastContainer } from 'react-toastify';
+import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 
 
 const App = () => {
