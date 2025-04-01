@@ -8,6 +8,10 @@ import { clerkMiddleware } from '@clerk/express'
 import connectCloudinary from './configs/cloudinary.js'
 import courseRouter from './routes/courseRoute.js'
 import userRouter from './routes/userRoutes.js'
+import { errorHandler } from './middlewares/errorHandler.js'
+import helmet from 'helmet'
+import rateLimit from 'express-rate-limit'
+import compression from 'compression'
 
 // Initialize Express
 const app = express()
@@ -16,9 +20,28 @@ const app = express()
 await connectDB()
 await connectCloudinary()
 
-// Middlewares
-app.use(express.json())
-app.use(cors())
+// Security Middleware
+app.use(helmet())
+app.use(cors({
+  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  credentials: true
+}))
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+})
+app.use('/api/', limiter)
+
+// Compression
+app.use(compression())
+
+// Body parsing
+app.use(express.json({ limit: '10mb' }))
+app.use(express.urlencoded({ extended: true, limit: '10mb' }))
+
+// Authentication
 app.use(clerkMiddleware())
 
 // Routes
@@ -29,6 +52,8 @@ app.use('/api/course', express.json(), courseRouter)
 app.use('/api/user', express.json(), userRouter)
 app.post('/stripe', express.raw({type: 'application/json'}), stripeWebhooks)
 
+// Error handling
+app.use(errorHandler)
 
 // Port
 const PORT = process.env.PORT || 5000

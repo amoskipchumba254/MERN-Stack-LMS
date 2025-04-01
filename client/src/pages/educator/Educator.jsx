@@ -1,12 +1,12 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Navbar from '../../componenets/educator/Navbar'
-import Sidebar from '../../componenets/educator/Sidebar'
-import Footer from '../../componenets/educator/Footer'
+import Navbar from '../../components/educator/Navbar'
+import Sidebar from '../../components/educator/Sidebar'
+import Footer from '../../components/educator/Footer'
 
 const Educator = () => {
   return (
-    <div className='text-default min-h-screen bg-white'>
+    <div className='min-h-screen bg-white text-default'>
         <Navbar />
         <div className='flex'>
           <Sidebar />

@@ -5,11 +5,11 @@ import { useParams } from 'react-router-dom'
 import { assets } from '../../assets/assets'
 import humanizeDuration from 'humanize-duration'
 import YouTube from 'react-youtube'
-import Footer from '../../componenets/student/Footer'
-import Rating from '../../componenets/student/Rating'
+import Footer from '../../components/student/Footer'
+import Rating from '../../components/student/Rating'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import Loading from '../../componenets/student/Loading'
+import Loading from '../../components/student/Loading'
 
 const Player = () => {
 

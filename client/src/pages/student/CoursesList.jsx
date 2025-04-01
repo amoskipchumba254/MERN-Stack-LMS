@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import { AppContext } from '../../context/AppContext'
-import SearchBar from '../../componenets/student/SearchBar'
+import SearchBar from '../../components/student/SearchBar'
 import { useParams } from 'react-router-dom'
-import CourseCard from '../../componenets/student/CourseCard'
+import CourseCard from '../../components/student/CourseCard'
 import { assets } from '../../assets/assets'
-import Footer from '../../componenets/student/Footer'
+import Footer from '../../components/student/Footer'
 
 const CoursesList = () => {
 
